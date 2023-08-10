@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Green Tech Organic Store - Track Order</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+    .container button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .tracking-form {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .tracking-form label {
+      margin-right: 10px;
+    }
+
+    .tracking-form input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      flex-grow: 1;
+    }
+
+    .tracking-form button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+
+    .tracking-form button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Logo1.jpg" alt="Green Tech Organic Store">
+  </header>
+
+  <div class="container">
+    <button onclick="window.location.href = 'index.html';">Home</button>
+    <h1>Track Your Order</h1>
+    <form class="tracking-form" onsubmit="event.preventDefault(); trackOrder();">
+      <label for="tracking-input">Order Number:</label>
+      <input type="text" id="tracking-input" placeholder="Enter your order number" required>
+      <button type="submit">Track</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Green Tech Organic Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function trackOrder() {
+      const orderNumberInput = document.getElementById('tracking-input');
+      const orderNumber = orderNumberInput.value;
+
+      // Perform tracking logic here
+      if (orderNumber) {
+        // Send an AJAX request to the PHP script for tracking
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'track_order.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            alert(xhr.responseText);
+          } else {
+            alert('Error tracking order');
+          }
+        };
+        xhr.send(`order_number=${orderNumber}`);
+      } else {
+        alert('Please enter a valid order number');
+      }
+
+      orderNumberInput.value = '';
+    }
+  </script>
+</body>
+</html>

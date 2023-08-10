@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Green Tech Resolution</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section#about {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .image {
+      flex-basis: calc(50% - 20px);
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    p {
+      margin-top: 0;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .reviews {
+      margin-top: 40px;
+    }
+
+    .review-form {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-form textarea,
+    .review-form input[type="submit"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .review {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .review:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      background-color: #333;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    .review p {
+      margin: 0;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .review-author {
+      margin-top: 10px;
+      font-style: italic;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+  
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Green Tech Resolution</h1>
+    <!-- Include the same navigation code as in the main HTML file -->
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Welcome to Green Tech Resolution, your trusted partner in sustainable solutions.</p>
+      <button onclick="window.location.href = 'index.html';">Home</button>
+
+      <div class="images">
+        <div class="image">
+          <img src="Farmbot.jpg" alt="Farmbot">
+          <h3>Our Vision</h3>
+          <p>At Green Tech Resolution, we are a young and dynamic company dedicated to revolutionizing sustainable robotic technologies for the betterment of our planet. Our mission is to create innovative solutions that not only meet your needs but also contribute to a greener and more sustainable future.</p>
+        </div>
+        <div class="image">
+          <img src="systems.jpg" alt="systems">
+          <h3>Our Mission</h3>
+          <p>What sets us apart from other companies is our unwavering commitment to attention to detail and professionalism. We understand the importance of every project and believe that excellence lies in the small details. From the initial consultation to the final implementation, we ensure that each aspect of our work reflects our dedication to perfection.</p>
+        </div>
+        <div class="image">
+          <img src="growbed.jpg" alt="growbed">
+          <h3>Our Values</h3>
+          <p>With Green Tech Resolution, you can expect innovative solutions that integrate cutting-edge technology with sustainability. Customer confidence is guaranteed.</p>
+        </div>
+        <div class="image">
+          <img src="aqua.jpg" alt="aqua">
+          <h3>Our Team</h3>
+          <p>We go beyond the conventional approach and constantly push boundaries to provide you with the most advanced and environmentally friendly solutions available.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews">
+      <h3>Customer Reviews</h3>
+
+      <div class="review-form">
+        <h4>Add Your Review</h4>
+        <form id="reviewForm">
+          <textarea id="reviewText" name="reviewText" placeholder="Write your review here"></textarea>
+          <input type="submit" value="Submit Review">
+        </form>
+      </div>
+
+      <div id="reviewsContainer">
+        <div class="review">
+          <p>"Green Tech Resolution exceeded our expectations with their sustainable solutions. We are extremely satisfied with the results of our project. Their expertise and dedication to eco-friendly solutions are truly commendable."</p>
+          <p class="review-author">- John Doe</p>
+        </div>
+
+        <div class="review">
+          <p>"I highly recommend Green Tech Resolution. Their innovative solutions have helped us achieve our sustainability goals while improving efficiency."</p>
+          <p class="review-author">- Jane Smith</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Green Tech Resolution. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function submitReview(event) {
+      event.preventDefault();
+
+      var reviewText = document.getElementById("reviewText").value;
+
+      var reviewElement = document.createElement("div");
+      reviewElement.className = "review";
+      reviewElement.innerHTML =
+        '<p>"' +
+        reviewText +
+        '"</p>' +
+        '<p class="review-author">- Your Name</p>';
+
+      var reviewsContainer = document.getElementById("reviewsContainer");
+      reviewsContainer.appendChild(reviewElement);
+
+      document.getElementById("reviewText").value = "";
+    }
+
+    var reviewForm = document.getElementById("reviewForm");
+    reviewForm.addEventListener("submit", submitReview);
+  </script>
+</body>
+
+</html>

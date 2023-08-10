@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Page</title>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #444444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      border: 10px solid #ccc;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .product-card {
+      border: 1px solid #ccc;
+      margin: 10px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      background-color: #ffffff;
+    }
+
+    .product-card h3,
+    .product-card p {
+      margin: 0;
+      text-align: center;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .add-product-form {
+      margin: 20px;
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .add-product-form h2 {
+      margin-bottom: 10px;
+      color: #555555;
+    }
+
+    .add-product-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .add-product-form input[type="text"],
+    .add-product-form input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    .add-product-form button {
+      background-color: #008f3f;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .add-product-form button:hover {
+      background-color: #006f30;
+    }
+
+    .home-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .home-button a {
+      text-decoration: none;
+      background-color: #008f3f;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .home-button a:hover {
+      background-color: #006f30;
+    }
+  </style>
+
+  <script>
+    function addProduct() {
+      var productName = document.getElementById("product-name").value;
+      var productPrice = document.getElementById("product-price").value;
+      var fileInput = document.getElementById("product-image");
+      var file = fileInput.files[0];
+
+      if (productName.trim() === "" || productPrice.trim() === "" || !file) {
+        alert("Please enter product name, price, and select an image.");
+        return;
+      }
+
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+
+        var productNameElement = document.createElement("h3");
+        productNameElement.innerText = productName;
+        productCard.appendChild(productNameElement);
+
+        var productImageElement = document.createElement("img");
+        productImageElement.src = event.target.result;
+        productCard.appendChild(productImageElement);
+
+        var productPriceElement = document.createElement("p");
+        productPriceElement.innerText = "R" + productPrice; // Display price in Rands
+        productCard.appendChild(productPriceElement);
+
+        var removeButton = document.createElement("button");
+        removeButton.innerText = "Remove";
+        removeButton.addEventListener("click", function() {
+          productCard.remove();
+        });
+        productCard.appendChild(removeButton);
+
+        document.getElementById("product-list").appendChild(productCard);
+
+        document.getElementById("product-name").value = "";
+        document.getElementById("product-price").value = "";
+        fileInput.value = null;
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to the Edit Page</h1>
+  <div class="product-list" id="product-list">
+    <!-- Existing product cards will be dynamically added here -->
+  </div>
+  <div class="add-product-form">
+    <h2>Add a Product</h2>
+    <label for="product-name">Product Name:</label>
+    <input type="text" id="product-name" required><br><br>
+    <label for="product-image">Image:</label>
+    <input type="file" id="product-image" accept="image/*" required><br><br>
+    <label for="product-price">Product Price (Rands):</label>
+    <input type="text" id="product-price" required><br><br>
+    <button onclick="addProduct()">Add Product</button>
+  </div>
+  <div class="home-button">
+    <a href="index.html">Home</a>
+  </div>
+</body>
+</html>

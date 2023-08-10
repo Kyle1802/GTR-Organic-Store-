@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us - Order Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    footer {
+      color: #666;
+      font-size: 14px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    footer ul li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contact Us to Order</h1>
+  <p>Ordering ahead to reserve your order is the best way to guarantee you'll have the Organic Products you need, when you need them.</p>
+  <button onclick="window.location.href = 'index.html';">Home</button>
+  
+  <div class="form-container">
+    <h2>Order Form</h2>
+    <form action="submit_order.php" method="post">
+      <label for="name">Name*:</label>
+      <input type="text" id="name" name="name" required>
+      <br>
+      <label for="phone">Phone number*:</label>
+      <input type="text" id="phone" name="phone" required>
+      <br>
+      <h3>Order Options:</h3>
+      <input type="checkbox" id="option1" name="order_option" value="Option 1">
+      <label for="option1">Monday</label><br>
+      <input type="checkbox" id="option2" name="order_option" value="Option 2">
+      <label for="option2">Tuesday</label><br>
+      <input type="checkbox" id="option3" name="order_option" value="Option 3">
+      <label for="option3">Wednesday</label><br>
+      <input type="checkbox" id="option4" name="order_option" value="Option 4">
+      <label for="option4">Thursday</label><br>
+      <input type="checkbox" id="option5" name="order_option" value="Option 5">
+      <label for="option5">Friday</label><br>
+      <br>
+      <label for="order_description">Describe your order:</label>
+      <textarea id="order_description" name="order_description"></textarea>
+      <br>
+      <h3>Order:</h3>
+      <table id="order_table">
+        <tr>
+          <th>Order number</th>
+          <th>Quantity</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="element[]" required></td>
+          <td><input type="number" name="quantity[]" required></td>
+          <td><input type="text" name="description[]" required></td>
+        </tr>
+        <!-- Add more rows dynamically using JavaScript if needed -->
+      </table>
+      <button type="button" onclick="addRow()">Add Order</button>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <footer>
+    <p>Contact Green Tech Resolution Company:</p>
+    <ul>
+      <li>Phone: 0746149038</li>
+      <li>Email: greentechresolutions@gmail.com</li>
+    </ul>
+  </footer>
+
+  <script>
+    function addRow() {
+      var table = document.getElementById("order_table");
+      var row = table.insertRow();
+      row.innerHTML = `<td><input type="text" name="element[]" required></td>
+                       <td><input type="number" name="quantity[]" required></td>
+                       <td><input type="text" name="description[]" required></td>`;
+    }
+  </script>
+</body>
+</html>

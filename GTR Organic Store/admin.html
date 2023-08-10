@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - Green Tech Resolutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #006400; /* Dark green */
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #008000; /* Green */
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 18px;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 30px;
+            background-color: #008000; /* Green */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #006400; /* Dark green */
+        }
+
+       .container {
+          max-width: 400px;
+          margin: 0 auto;
+          border: 2px solid #008000; /* Green */
+          padding: 20px;
+          border-radius: 5px;
+        }
+
+
+    .home-button {
+      display: inline-block;
+      padding: 10px 30px;
+      background-color: #008000; /* Green */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    .home-button:hover {
+      background-color: #006400; /* Dark green */
+    }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Admin Panel</h1>
+        <div>
+            <h2>Login</h2>
+            <form action="check_admin.php" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+
+        <div>
+            <h2>Sign Up</h2>
+            <form action="check_admin.php" method="POST">
+                <label for="new_username">Username:</label>
+                <input type="text" id="new_username" name="new_username" required>
+                <label for="new_password">Password:</label>
+                <input type="password" id="new_password" name="new_password" required>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+
+        <a href="index.html" class="home-button">Back to Home</a>
+    </div>
+</body>
+</html>
